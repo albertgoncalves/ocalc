@@ -7,4 +7,6 @@ let () =
             print_newline ();
             flush stdout
         done
-    with Lexer.Eof -> exit 0
+    with
+        | Lexer.SyntaxError x -> print_endline x; exit 1
+        | Lexer.EndOfFile -> exit 0
