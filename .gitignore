@@ -1,8 +1,10 @@
 *
 !.gitignore
+!README.md
 !shell.nix
 !src/
 !*.mly
 !*.mll
 !calc.ml
 !main
+!calc.txt

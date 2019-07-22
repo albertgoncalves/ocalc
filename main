@@ -14,4 +14,5 @@ ocamlc -o $WD/bin/calc lexer.cmo parser.cmo calc.cmo
 
 cd $start
 
+echo "./bin/calc"
 rlwrap $WD/bin/calc

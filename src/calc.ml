@@ -1,9 +1,9 @@
-let _ =
+let () =
     try
-        let lexbuf = Lexing.from_channel stdin in
+        let user_input : Lexing.lexbuf = Lexing.from_channel stdin in
         while true do
-            let result = Parser.main Lexer.token lexbuf in
-            print_int result;
+            let result : float = Parser.main Lexer.token user_input in
+            print_float result;
             print_newline ();
             flush stdout
         done
