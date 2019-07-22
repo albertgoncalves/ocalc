@@ -1,7 +1,8 @@
 # ocalc
 
-Trying to figure out how to use `ocamllex` and `ocamlyacc`, starting with
-[Chapter 13](https://caml.inria.fr/pub/docs/manual-ocaml/lexyacc.html).
+Trying to figure out how to use `ocamllex`, `ocamlyacc`, and `menhir`.
+ * [The OCaml system - Chapter 13](https://caml.inria.fr/pub/docs/manual-ocaml/lexyacc.html)
+ * [Real World OCaml - Parsing with OCamllex and Menhir](https://dev.realworldocaml.org/parsing-with-ocamllex-and-menhir.html).
 
 Needed things
 ---
