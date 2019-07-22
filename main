@@ -4,7 +4,7 @@ build () {
     home=$(pwd)
     cd $WD/src/
     ocamllex lexer.mll      # generates lexer.ml
-    ocamlyacc parser.mly    # generates parser.ml and parser.mli
+    menhir parser.mly       # generates parser.ml and parser.mli
     ocamlc -c parser.mli
     ocamlc -c lexer.ml
     ocamlc -c parser.ml

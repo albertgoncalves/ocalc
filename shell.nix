@@ -4,6 +4,7 @@ with pkgs; mkShell {
     buildInputs = [
         (with ocaml-ng.ocamlPackages_4_07; [
             findlib
+            menhir
             ocaml
             ocp-indent
             utop
