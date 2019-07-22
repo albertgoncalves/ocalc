@@ -1,10 +1,11 @@
 {
+    open Parser
     exception Eof
 }
 
 rule token = parse
     | [' ' '\t']            { token lexbuf } (* skip blanks *)
-    | ['\n' ]               { Parser.EOL }
+    | ['\n']                { EOL }
     | ['0'-'9' '.']+ as lxm { FLOAT(float_of_string lxm) }
     | '+'                   { PLUS }
     | '-'                   { MINUS }
