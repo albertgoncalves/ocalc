@@ -8,7 +8,7 @@ build () {
     ocamllex lexer.mll      # generates lexer.ml
     menhir parser.mly       # generates parser.ml and parser.mli
     ocamlc -c parser.mli
-    ocamlc lexer.ml parser.ml main.ml -o "$WD/bin/main"
+    ocamlc exceptions.ml lexer.ml parser.ml main.ml -o "$WD/bin/main"
     cd $home
 }
 

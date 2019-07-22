@@ -8,5 +8,6 @@ let () =
             flush stdout
         done
     with
-        | Lexer.SyntaxError x -> print_endline x; exit 1
-        | Lexer.EndOfFile -> exit 0
+        | Exceptions.LexError -> print_endline "Lex Error"; exit 1
+        | Exceptions.ParseError -> print_endline "Parse Error"; exit 1
+        | Exceptions.EndOfFile -> exit 0
