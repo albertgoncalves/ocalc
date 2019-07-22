@@ -23,7 +23,7 @@ $ nix-shell
 ```
 [nix-shell:path/to/ocalc]$ cat calc.txt | ./main
 11 states, 269 transitions, table size 1142 bytes
-./bin/calc
+./bin/main
 2.
 600.
 90.99
