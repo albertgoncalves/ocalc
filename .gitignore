@@ -2,6 +2,8 @@
 !.gitignore
 !README.md
 !shell.nix
+!.shellhook
+!.ocp-indent
 !src/
 !*.mly
 !*.mll

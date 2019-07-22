@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+if [ $(uname -s) = "Darwin" ]; then
+    alias ls='ls --color=auto'
+    alias ll='ls -l'
+else
+    alias open="xdg-open"
+fi
+
+export WD=$(pwd)
+
+if [ ! -d "$WD/bin" ]; then
+    mkdir "$WD/bin"
+fi
