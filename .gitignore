@@ -7,6 +7,6 @@
 !src/
 !*.mly
 !*.mll
-!calc.ml
+!main.ml
 !main
 !calc.txt
