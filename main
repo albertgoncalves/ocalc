@@ -6,10 +6,7 @@ build () {
     ocamllex lexer.mll      # generates lexer.ml
     menhir parser.mly       # generates parser.ml and parser.mli
     ocamlc -c parser.mli
-    ocamlc -c lexer.ml
-    ocamlc -c parser.ml
-    ocamlc -c calc.ml
-    ocamlc lexer.cmo parser.cmo calc.cmo -o $WD/bin/calc
+    ocamlc lexer.ml parser.ml calc.ml -o "$WD/bin/calc"
     cd $home
 }
 
