@@ -1,3 +1,16 @@
+main: FLOAT FLOAT
+##
+## Ends in an error in state: 10.
+##
+## expr -> expr DIV . expr [ TIMES RPAREN PLUS MINUS EOL DIV ]
+##
+## The known suffix of the stack is as follows:
+## expr DIV
+##
+
+main: FLOAT FLOAT
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
 main: FLOAT DIV TIMES
 ##
 ## Ends in an error in state: 10.
@@ -69,23 +82,6 @@ main: FLOAT PLUS TIMES
 ##
 
 main: FLOAT PLUS TIMES
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-main: FLOAT RPAREN
-##
-## Ends in an error in state: 16.
-##
-## expr -> expr . PLUS expr [ TIMES PLUS MINUS EOL DIV ]
-## expr -> expr . MINUS expr [ TIMES PLUS MINUS EOL DIV ]
-## expr -> expr . TIMES expr [ TIMES PLUS MINUS EOL DIV ]
-## expr -> expr . DIV expr [ TIMES PLUS MINUS EOL DIV ]
-## main -> expr . EOL [ # ]
-##
-## The known suffix of the stack is as follows:
-## expr
-##
-
-main: FLOAT RPAREN
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
 main: FLOAT TIMES TIMES
