@@ -1,4 +1,4 @@
-main: INT DIV TIMES
+main: FLOAT DIV TIMES
 ##
 ## Ends in an error in state: 10.
 ##
@@ -8,10 +8,10 @@ main: INT DIV TIMES
 ## expr DIV
 ##
 
-main: INT DIV TIMES
+main: FLOAT DIV TIMES
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-main: INT MINUS INT LPAREN
+main: FLOAT MINUS FLOAT LPAREN
 ##
 ## Ends in an error in state: 13.
 ##
@@ -25,10 +25,10 @@ main: INT MINUS INT LPAREN
 ## expr MINUS expr
 ##
 
-main: INT MINUS INT LPAREN
+main: FLOAT MINUS FLOAT LPAREN
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-main: INT MINUS TIMES
+main: FLOAT MINUS TIMES
 ##
 ## Ends in an error in state: 12.
 ##
@@ -38,10 +38,10 @@ main: INT MINUS TIMES
 ## expr MINUS
 ##
 
-main: INT MINUS TIMES
+main: FLOAT MINUS TIMES
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-main: INT PLUS INT LPAREN
+main: FLOAT PLUS FLOAT LPAREN
 ##
 ## Ends in an error in state: 9.
 ##
@@ -55,10 +55,10 @@ main: INT PLUS INT LPAREN
 ## expr PLUS expr
 ##
 
-main: INT PLUS INT LPAREN
+main: FLOAT PLUS FLOAT LPAREN
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-main: INT PLUS TIMES
+main: FLOAT PLUS TIMES
 ##
 ## Ends in an error in state: 8.
 ##
@@ -68,10 +68,10 @@ main: INT PLUS TIMES
 ## expr PLUS
 ##
 
-main: INT PLUS TIMES
+main: FLOAT PLUS TIMES
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-main: INT RPAREN
+main: FLOAT RPAREN
 ##
 ## Ends in an error in state: 16.
 ##
@@ -85,10 +85,10 @@ main: INT RPAREN
 ## expr
 ##
 
-main: INT RPAREN
+main: FLOAT RPAREN
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-main: INT TIMES TIMES
+main: FLOAT TIMES TIMES
 ##
 ## Ends in an error in state: 5.
 ##
@@ -98,10 +98,10 @@ main: INT TIMES TIMES
 ## expr TIMES
 ##
 
-main: INT TIMES TIMES
+main: FLOAT TIMES TIMES
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-main: LPAREN INT LPAREN
+main: LPAREN FLOAT LPAREN
 ##
 ## Ends in an error in state: 4.
 ##
@@ -115,7 +115,7 @@ main: LPAREN INT LPAREN
 ## LPAREN expr
 ##
 
-main: LPAREN INT LPAREN
+main: LPAREN FLOAT LPAREN
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
 main: LPAREN TIMES

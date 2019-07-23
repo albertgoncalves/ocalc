@@ -1,11 +1,15 @@
 {
     open Parser
     exception Error of string
-    let unexpected_char (x : int) : Parser.token =
+    let unexpected_char (lexbuf : Lexing.lexbuf) : Parser.token =
         let message =
-            Printf.sprintf "At offset %d: unexpected character.\n" x in
+            Printf.sprintf "Line %d, offset %d: unexpected character.\n"
+                lexbuf.lex_curr_p.pos_lnum (Lexing.lexeme_start lexbuf) in
         raise (Error (message))
 }
+
+let digit = ['0'-'9']
+let float = digit* '.'? digit+ | digit+ '.'? digit*
 
 (* This rule looks for a single line, terminated with '\n' or eof.  It returns
    a pair of an optional string (the line that was found) and a Boolean flag
@@ -20,11 +24,11 @@ rule line = parse
 and token = parse
     | [' ' '\t']        { token lexbuf }
     | '\n'              { EOL }
-    | ['0'-'9']+ as i   { INT (int_of_string i) }
+    | float as i        { FLOAT (float_of_string i) }
     | '+'               { PLUS }
     | '-'               { MINUS }
     | '*'               { TIMES }
     | '/'               { DIV }
     | '('               { LPAREN }
     | ')'               { RPAREN }
-    | _                 { unexpected_char @@ Lexing.lexeme_start lexbuf }
+    | _                 { unexpected_char lexbuf }
