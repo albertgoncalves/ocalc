@@ -23,13 +23,23 @@ $ nix-shell
 (6 * 100)
 100 - 9.01
 ((99 / 100) * 10) / 3
+(99 / 100) * (10 / 3)
+(99 / 100) * 10 / 3
+99 / 100 * 10 / 3
+99 / 100 * (10 / 3)
+99 / (100 * (10 / 3))
 ```
 ```
 [nix-shell:path/to/ocalc]$ cat calc.txt | ./main
-11 states, 269 transitions, table size 1142 bytes
-./bin/main
-2.
-600.
-90.99
-3.3
+Read 11 sample input sentences and 11 error messages.
+Finished, 14 targets (14 cached) in 00:00:00.
+2.000000
+600.000000
+90.990000
+3.300000
+3.300000
+3.300000
+3.300000
+3.300000
+0.297000
 ```
