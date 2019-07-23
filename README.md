@@ -3,6 +3,10 @@
 Trying to figure out how to use `ocamllex`, `ocamlyacc`, and `menhir`.
  * [The OCaml system - Chapter 13](https://caml.inria.fr/pub/docs/manual-ocaml/lexyacc.html)
  * [Real World OCaml - Parsing with OCamllex and Menhir](https://dev.realworldocaml.org/parsing-with-ocamllex-and-menhir.html).
+ * [Menhir Reference Manual](http://gallium.inria.fr/~fpottier/menhir/manual.html)
+ * [calc-incremental](https://gitlab.inria.fr/fpottier/menhir/tree/master/demos/calc-incremental)
+ * [MenhirLib.IncrementalEngine](https://gitlab.inria.fr/fpottier/menhir/blob/master/src/IncrementalEngine.ml)
+ * [Module Lexing](https://caml.inria.fr/pub/docs/manual-ocaml/libref/Lexing.html)
 
 Needed things
 ---

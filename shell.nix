@@ -6,6 +6,7 @@ with pkgs; mkShell {
             findlib
             menhir
             ocaml
+            ocamlbuild
             ocp-indent
             utop
         ])

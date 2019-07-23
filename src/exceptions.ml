@@ -1,3 +1,0 @@
-exception ParseError
-exception LexError
-exception EndOfFile

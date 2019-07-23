@@ -5,13 +5,19 @@ set -eu
 build () {
     home=$(pwd)
     cd $WD/src/
-    ocamllex lexer.mll      # generates lexer.ml
-    menhir parser.mly       # generates parser.ml and parser.mli
-    ocamlc -c parser.mli
-    ocamlc exceptions.ml lexer.ml parser.ml main.ml -o "$WD/bin/main"
+    if [ ! -f parser.messages ]; then
+        menhir --list-errors parser.mly > parser.messages
+    fi
+    menhir --compile-errors parser.messages parser.mly > messages.ml
+    ocamlbuild \
+        -use-ocamlfind \
+        -use-menhir \
+        -menhir "menhir --table" \
+        -package menhirLib \
+        main.byte
+    mv main.byte $WD/bin/main.byte
     cd $home
 }
 
 build
-echo "./bin/main"
-rlwrap $WD/bin/main
+rlwrap $WD/bin/main.byte

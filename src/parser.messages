@@ -1,0 +1,159 @@
+main: INT DIV TIMES
+##
+## Ends in an error in state: 10.
+##
+## expr -> expr DIV . expr [ TIMES RPAREN PLUS MINUS EOL DIV ]
+##
+## The known suffix of the stack is as follows:
+## expr DIV
+##
+
+main: INT DIV TIMES
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+main: INT MINUS INT LPAREN
+##
+## Ends in an error in state: 13.
+##
+## expr -> expr . PLUS expr [ TIMES RPAREN PLUS MINUS EOL DIV ]
+## expr -> expr . MINUS expr [ TIMES RPAREN PLUS MINUS EOL DIV ]
+## expr -> expr MINUS expr . [ TIMES RPAREN PLUS MINUS EOL DIV ]
+## expr -> expr . TIMES expr [ TIMES RPAREN PLUS MINUS EOL DIV ]
+## expr -> expr . DIV expr [ TIMES RPAREN PLUS MINUS EOL DIV ]
+##
+## The known suffix of the stack is as follows:
+## expr MINUS expr
+##
+
+main: INT MINUS INT LPAREN
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+main: INT MINUS TIMES
+##
+## Ends in an error in state: 12.
+##
+## expr -> expr MINUS . expr [ TIMES RPAREN PLUS MINUS EOL DIV ]
+##
+## The known suffix of the stack is as follows:
+## expr MINUS
+##
+
+main: INT MINUS TIMES
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+main: INT PLUS INT LPAREN
+##
+## Ends in an error in state: 9.
+##
+## expr -> expr . PLUS expr [ TIMES RPAREN PLUS MINUS EOL DIV ]
+## expr -> expr PLUS expr . [ TIMES RPAREN PLUS MINUS EOL DIV ]
+## expr -> expr . MINUS expr [ TIMES RPAREN PLUS MINUS EOL DIV ]
+## expr -> expr . TIMES expr [ TIMES RPAREN PLUS MINUS EOL DIV ]
+## expr -> expr . DIV expr [ TIMES RPAREN PLUS MINUS EOL DIV ]
+##
+## The known suffix of the stack is as follows:
+## expr PLUS expr
+##
+
+main: INT PLUS INT LPAREN
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+main: INT PLUS TIMES
+##
+## Ends in an error in state: 8.
+##
+## expr -> expr PLUS . expr [ TIMES RPAREN PLUS MINUS EOL DIV ]
+##
+## The known suffix of the stack is as follows:
+## expr PLUS
+##
+
+main: INT PLUS TIMES
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+main: INT RPAREN
+##
+## Ends in an error in state: 16.
+##
+## expr -> expr . PLUS expr [ TIMES PLUS MINUS EOL DIV ]
+## expr -> expr . MINUS expr [ TIMES PLUS MINUS EOL DIV ]
+## expr -> expr . TIMES expr [ TIMES PLUS MINUS EOL DIV ]
+## expr -> expr . DIV expr [ TIMES PLUS MINUS EOL DIV ]
+## main -> expr . EOL [ # ]
+##
+## The known suffix of the stack is as follows:
+## expr
+##
+
+main: INT RPAREN
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+main: INT TIMES TIMES
+##
+## Ends in an error in state: 5.
+##
+## expr -> expr TIMES . expr [ TIMES RPAREN PLUS MINUS EOL DIV ]
+##
+## The known suffix of the stack is as follows:
+## expr TIMES
+##
+
+main: INT TIMES TIMES
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+main: LPAREN INT LPAREN
+##
+## Ends in an error in state: 4.
+##
+## expr -> LPAREN expr . RPAREN [ TIMES RPAREN PLUS MINUS EOL DIV ]
+## expr -> expr . PLUS expr [ TIMES RPAREN PLUS MINUS DIV ]
+## expr -> expr . MINUS expr [ TIMES RPAREN PLUS MINUS DIV ]
+## expr -> expr . TIMES expr [ TIMES RPAREN PLUS MINUS DIV ]
+## expr -> expr . DIV expr [ TIMES RPAREN PLUS MINUS DIV ]
+##
+## The known suffix of the stack is as follows:
+## LPAREN expr
+##
+
+main: LPAREN INT LPAREN
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+main: LPAREN TIMES
+##
+## Ends in an error in state: 2.
+##
+## expr -> LPAREN . expr RPAREN [ TIMES RPAREN PLUS MINUS EOL DIV ]
+##
+## The known suffix of the stack is as follows:
+## LPAREN
+##
+
+main: LPAREN TIMES
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+main: MINUS TIMES
+##
+## Ends in an error in state: 1.
+##
+## expr -> MINUS . expr [ TIMES RPAREN PLUS MINUS EOL DIV ]
+##
+## The known suffix of the stack is as follows:
+## MINUS
+##
+
+main: MINUS TIMES
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+main: TIMES
+##
+## Ends in an error in state: 0.
+##
+## main' -> . main [ # ]
+##
+## The known suffix of the stack is as follows:
+##
+##
+
+main: TIMES
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
