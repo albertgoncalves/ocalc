@@ -14,3 +14,15 @@ for x in bin build; do
         mkdir $WD/$x
     fi
 done
+
+indent () {
+    home=$(pwd)
+    cd $WD
+    for f in $WD/src/*.ml; do
+        echo $f
+        ocp-indent -i $f
+    done
+    cd $home
+}
+
+export -f indent
