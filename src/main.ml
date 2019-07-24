@@ -9,7 +9,9 @@ let () =
     let lexbuf : Lexing.lexbuf = Lexing.from_channel stdin in
     try
         while true do
-            Printf.printf "%f\n%!" (Parser.main Lexer.token lexbuf)
+            match (Parser.main Lexer.token lexbuf) with
+                | Prelude.Value x -> Printf.printf "%f\n%!" x
+                | Empty -> ()
         done
     with
         | Lexer.Eof -> exit 0

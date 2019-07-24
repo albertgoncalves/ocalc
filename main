@@ -5,13 +5,13 @@ set -eu
 build () {
     home=$(pwd)
     cd $WD/build
-    for x in lexer.mll parser.mly main.ml; do
+    for x in prelude.ml lexer.mll parser.mly main.ml; do
         cp $WD/src/$x ./$x
     done
     ocamllex lexer.mll
     menhir parser.mly
-    ocamlc -c parser.mli
-    ocamlc lexer.ml parser.ml main.ml -o $WD/bin/main
+    ocamlc prelude.ml -c parser.mli
+    ocamlc prelude.ml lexer.ml parser.ml main.ml -o $WD/bin/main
     cd $home
 }
 
