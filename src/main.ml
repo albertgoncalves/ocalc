@@ -1,32 +1,17 @@
-module M = MenhirLib.IncrementalEngine
-module P = Parser.MenhirInterpreter
-
-let succeed : float -> unit = Printf.printf "%f\n%!"
-
-let fail (lexbuf : Lexing.lexbuf) (checkpoint : float P.checkpoint) : unit =
-    (match checkpoint with
-        | P.HandlingError env ->
-            let s = P.current_state_number env in
-            Messages.message s
-            |> Printf.fprintf stderr "ln %d\n%s%!" lexbuf.lex_curr_p.pos_lnum
-        | _ ->
-            Printf.fprintf stderr
-                "Parser Error: unhandled condition\nline %d, offset %d%!"
-                lexbuf.lex_start_p.pos_lnum
-                lexbuf.lex_start_p.pos_cnum);
-    exit 1
-
-let loop (lexbuf : Lexing.lexbuf) (result : float P.checkpoint) : unit =
-    let supplier : unit -> P.token * M.position * M.position =
-        P.lexer_lexbuf_to_supplier Lexer.token lexbuf in
-    P.loop_handle succeed (fail lexbuf) supplier result
+let print_error (lexbuf : Lexing.lexbuf) (handle : string) : unit =
+    Printf.eprintf
+        "Line %d, offset %d: %s error\n%!"
+        lexbuf.lex_start_p.pos_lnum
+        (lexbuf.lex_start_p.pos_cnum - lexbuf.lex_start_p.pos_bol)
+        handle
 
 let () =
+    let lexbuf : Lexing.lexbuf = Lexing.from_channel stdin in
     try
-        let lexbuf : Lexing.lexbuf = Lexing.from_channel stdin in
         while true do
-            loop lexbuf (Parser.Incremental.main lexbuf.lex_curr_p)
+            Printf.printf "%f\n%!" (Parser.main Lexer.token lexbuf)
         done
     with
-        | Prelude.Eof -> exit 0
-        | Prelude.Error msg -> Printf.fprintf stderr "%s%!" msg; exit 1
+        | Lexer.Eof -> exit 0
+        | Lexer.Error -> print_error lexbuf "Lexer"; exit 1
+        | Parser.Error -> print_error lexbuf "Parser"; exit 1
