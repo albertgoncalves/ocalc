@@ -1,5 +1,7 @@
 {
     open Parser
+    exception Eof
+    exception Error
 }
 
 let digit = ['0'-'9']
@@ -15,5 +17,5 @@ rule token = parse
     | '/'           { DIV }
     | '('           { LPAREN }
     | ')'           { RPAREN }
-    | eof           { raise Prelude.Eof }
-    | _             { Prelude.unexpected_char lexbuf }
+    | eof           { raise Eof }
+    | _             { raise Error }

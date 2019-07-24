@@ -5,10 +5,8 @@
 !.shellhook
 !.ocp-indent
 !src/
-!parser.mly
-!parser.messages
-!lexer.mll
-!prelude.ml
-!main.ml
+!*.mly
+!*.mll
+!*.ml
 !main
 !calc.txt

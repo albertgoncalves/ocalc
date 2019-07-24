@@ -4,20 +4,19 @@ set -eu
 
 build () {
     home=$(pwd)
-    cd $WD/src/
-    if [ ! -f parser.messages ]; then
-        menhir --list-errors parser.mly > parser.messages
+    if [ ! -d $WD/build ]; then
+        mkdir $WD/build
     fi
-    menhir --compile-errors parser.messages parser.mly > messages.ml
-    ocamlbuild \
-        -use-ocamlfind \
-        -use-menhir \
-        -menhir "menhir --table" \
-        -package menhirLib \
-        main.byte
-    mv main.byte $WD/bin/main.byte
+    cd $WD/build
+    for x in lexer.mll parser.mly main.ml; do
+        cp $WD/src/$x ./$x
+    done
+    ocamllex lexer.mll
+    menhir parser.mly
+    ocamlc -c parser.mli
+    ocamlc lexer.ml parser.ml main.ml -o $WD/bin/main
     cd $home
 }
 
 build
-rlwrap $WD/bin/main.byte
+rlwrap $WD/bin/main
