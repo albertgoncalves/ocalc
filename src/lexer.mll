@@ -15,6 +15,8 @@ rule token = parse
     | '-'           { MINUS }
     | '*'           { TIMES }
     | '/'           { DIV }
+    | "**"          { POWER }
+    | '|'           { SQRT }
     | '('           { LPAREN }
     | ')'           { RPAREN }
     | eof           { raise Eof }

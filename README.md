@@ -31,20 +31,24 @@ $ nix-shell
 [nix-shell:path/to/ocalc]$ cat calc.txt
 1 + 1
 (6 * 100)
-100 - 9.01
+7 ** 3.01
+| 25
 ((99 / 100) * 10) / 3
+
 99 / 100 * 10 / 3
 99 / (100 * (10 / 3))
+
 1..
 ```
 ```
 [nix-shell:path/to/ocalc]$ cat calc.txt | ./main
-15 states, 299 transitions, table size 1286 bytes
+17 states, 299 transitions, table size 1298 bytes
 2.000000
 600.000000
-90.990000
+349.739835
+5.000000
 3.300000
 3.300000
 0.297000
-Line 7, offset 2: Lexer error
+Line 10, offset 2: Lexer error
 ```
