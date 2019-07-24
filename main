@@ -4,9 +4,6 @@ set -eu
 
 build () {
     home=$(pwd)
-    if [ ! -d $WD/build ]; then
-        mkdir $WD/build
-    fi
     cd $WD/build
     for x in lexer.mll parser.mly main.ml; do
         cp $WD/src/$x ./$x
