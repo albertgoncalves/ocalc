@@ -10,10 +10,10 @@ let () =
     try
         while true do
             match (Parser.main Lexer.token lexbuf) with
-                | Prelude.Value x -> Printf.printf "%f\n%!" x
-                | Prelude.Empty -> ()
+                | Some x -> Printf.printf "%f\n%!" x
+                | None -> ()
         done
     with
         | Lexer.Eof -> exit 0
-        | Lexer.Error -> print_error lexbuf "Lexer"; exit 1
-        | Parser.Error -> print_error lexbuf "Parser"; exit 1
+        | Lexer.Error -> print_error lexbuf "Lex"; exit 1
+        | Parser.Error -> print_error lexbuf "Parse"; exit 1

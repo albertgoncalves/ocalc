@@ -1,1 +1,1 @@
-type 'a result = Value of 'a | Empty
+type parse_option = float option

@@ -14,13 +14,13 @@
 %left POWER %nonassoc SQRT
 %nonassoc UMINUS            /* highest precedence */
 
-%start <float Prelude.result> main
+%start <Prelude.parse_option> main
 
 %%
 
 main:
-    | EOL                           { Prelude.Empty }
-    | e = expr EOL                  { Prelude.Value e }
+    | EOL                           { None }
+    | e = expr EOL                  { Some e }
 
 expr:
     | f = FLOAT                     { f }
