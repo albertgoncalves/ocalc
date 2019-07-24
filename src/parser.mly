@@ -9,23 +9,18 @@
 %token RPAREN
 %token EOL
 
-%left PLUS MINUS        /* lowest precedence  */
+%left PLUS MINUS            /* lowest precedence */
 %left TIMES DIV
-%left POWER             /* medium precedence  */
-%nonassoc SQRT
-%nonassoc UMINUS        /* highest precedence */
+%left POWER %nonassoc SQRT
+%nonassoc UMINUS            /* highest precedence */
 
-%{
-    open Prelude
-%}
-
-%start <Prelude.result> main
+%start <float Prelude.result> main
 
 %%
 
 main:
-    | EOL                           { Empty }
-    | e = expr EOL                  { Value (e) }
+    | EOL                           { Prelude.Empty }
+    | e = expr EOL                  { Prelude.Value e }
 
 expr:
     | f = FLOAT                     { f }

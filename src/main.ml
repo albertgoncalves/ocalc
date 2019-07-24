@@ -11,7 +11,7 @@ let () =
         while true do
             match (Parser.main Lexer.token lexbuf) with
                 | Prelude.Value x -> Printf.printf "%f\n%!" x
-                | Empty -> ()
+                | Prelude.Empty -> ()
         done
     with
         | Lexer.Eof -> exit 0

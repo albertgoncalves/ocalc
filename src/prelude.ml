@@ -1,1 +1,1 @@
-type result = Value of float | Empty
+type 'a result = Value of 'a | Empty
