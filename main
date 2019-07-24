@@ -11,7 +11,7 @@ build () {
     ocamllex lexer.mll
     menhir parser.mly
     ocamlc prelude.ml -c parser.mli
-    ocamlc prelude.ml lexer.ml parser.ml main.ml -o $WD/bin/main
+    ocamlc lexer.ml parser.ml main.ml -o $WD/bin/main
     cd $home
 }
 
