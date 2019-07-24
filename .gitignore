@@ -8,6 +8,7 @@
 !parser.mly
 !parser.messages
 !lexer.mll
+!prelude.ml
 !main.ml
 !main
 !calc.txt

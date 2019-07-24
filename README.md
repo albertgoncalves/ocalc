@@ -7,6 +7,9 @@ Trying to figure out how to use `ocamllex`, `ocamlyacc`, and `menhir`.
  * [calc-incremental](https://gitlab.inria.fr/fpottier/menhir/tree/master/demos/calc-incremental)
  * [MenhirLib.IncrementalEngine](https://gitlab.inria.fr/fpottier/menhir/blob/master/src/IncrementalEngine.ml)
  * [Module Lexing](https://caml.inria.fr/pub/docs/manual-ocaml/libref/Lexing.html)
+ * [A Nix parser in OCaml. Part 1: Lexer](https://pl-rants.net/posts/nix-parser-in-ocaml-part1/)
+ * [A Nix parser in OCaml. Part 2: Parser](https://pl-rants.net/posts/nix-parser-in-ocaml-part2/)
+ * [nixformat](https://github.com/d2km/nixformat)
 
 Needed things
 ---
