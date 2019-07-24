@@ -1,9 +1,9 @@
 let print_error (lexbuf : Lexing.lexbuf) (handle : string) : unit =
     Printf.eprintf
-        "Line %d, offset %d: %s error\n%!"
+        "\027[1m%s error\027[0m: Line %d, offset %d\n%!"
+        handle
         lexbuf.lex_start_p.pos_lnum
         (lexbuf.lex_start_p.pos_cnum - lexbuf.lex_start_p.pos_bol)
-        handle
 
 let () =
     let lexbuf : Lexing.lexbuf = Lexing.from_channel stdin in
