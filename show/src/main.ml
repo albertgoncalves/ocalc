@@ -10,7 +10,7 @@ let () =
     try
         while true do
             match (Parser.main Lexer.token lexbuf) with
-                | Some x -> x |> Prelude.print_expr |> print_endline
+                | Some x -> x |> Prelude.string_of_expr |> print_endline
                 | None -> ()
         done
     with
