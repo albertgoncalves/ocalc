@@ -10,7 +10,7 @@ let float = digit* '.'? digit+ | digit+ '.'? digit*
 rule token = parse
     | [' ' '\t']    { token lexbuf }
     | '\n'          { Lexing.new_line lexbuf; EOL }
-    | float as i    { FLOAT (float_of_string i) }
+    | float as i    { FLOAT i }
     | '+'           { ADD }
     | '-'           { SUB }
     | '*'           { MUL }

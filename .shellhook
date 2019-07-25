@@ -9,10 +9,12 @@ fi
 
 export WD=$(pwd)
 
-for x in calc/bin calc/build; do
-    if [ ! -d $WD/$x ]; then
-        mkdir $WD/$x
-    fi
+for x in calc show; do
+    for y in bin build; do
+        if [ ! -d $WD/$x/$y ]; then
+            mkdir $WD/$x/$y
+        fi
+    done
 done
 
 indent () {

@@ -4,10 +4,11 @@
 !shell.nix
 !.shellhook
 !.ocp-indent
+!calc/
+!show/
 !src/
 !*.mly
 !*.mll
 !*.ml
-!calc/
 !main
-!calc.txt
+!script.txt
