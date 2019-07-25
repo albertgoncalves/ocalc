@@ -14,7 +14,7 @@
 %left POWER %nonassoc SQRT
 %nonassoc UMINUS            /* highest precedence */
 
-%start <Prelude.parse_option> main
+%start <float option> main
 
 %%
 
