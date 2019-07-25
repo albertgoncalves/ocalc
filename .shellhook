@@ -16,10 +16,15 @@ for x in calc/bin calc/build; do
 done
 
 indent () {
-    for f in src/*.ml; do
-        echo $f
-        ocp-indent -i $f
-    done
+    if [ -d $1 ]; then
+        xs=$1/*.ml
+        if ls $xs >/dev/null 2>&1; then
+            for x in $xs; do
+                echo $x
+                ocp-indent -i $x
+            done
+        fi
+    fi
 }
 
 export -f indent
