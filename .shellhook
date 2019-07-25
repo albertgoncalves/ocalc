@@ -9,20 +9,17 @@ fi
 
 export WD=$(pwd)
 
-for x in bin build; do
+for x in calc/bin calc/build; do
     if [ ! -d $WD/$x ]; then
         mkdir $WD/$x
     fi
 done
 
 indent () {
-    home=$(pwd)
-    cd $WD
-    for f in $WD/src/*.ml; do
+    for f in src/*.ml; do
         echo $f
         ocp-indent -i $f
     done
-    cd $home
 }
 
 export -f indent
