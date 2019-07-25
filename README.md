@@ -26,15 +26,14 @@ Quick start
 ---
 ```
 $ nix-shell
-[nix-shell:path/to/ocalc]$ cd calc/
 ```
 ```
-[nix-shell:path/to/ocalc/calc]$ cat calc.txt
+[nix-shell:path/to/ocalc/calc]$ cat ../script.txt
 1 + 1
-(6 * 100)
+(6 * -100)
 7 ** 3.01
-| 25
-((99 / 100) * 10) / 3
+sq 25
+((-99 / 100) * 10) / 3
 
 99 / 100 * 10 / 3
 99 / (100 * (10 / 3))
@@ -42,14 +41,26 @@ $ nix-shell
 1..
 ```
 ```
-[nix-shell:path/to/ocalc/calc]$ cat calc.txt | ./main
-17 states, 299 transitions, table size 1298 bytes
+[nix-shell:path/to/ocalc/calc]$ cat ../script.txt | ./main
+18 states, 299 transitions, table size 1304 bytes
 2.000000
-600.000000
+-600.000000
 349.739835
 5.000000
-3.300000
+-3.300000
 3.300000
 0.297000
-Line 10, offset 2: Lexer error
+Lex error: line 10, offset 2
+```
+```
+[nix-shell:path/to/ocalc/show]$ cat ../script.txt | ./main
+18 states, 299 transitions, table size 1304 bytes
+Add(1, 1)
+Mul(6, Minus(100))
+Pow(7, 3.01)
+Sqrt(25)
+Div(Mul(Div(Minus(99), 100), 10), 3)
+Div(Mul(Div(99, 100), 10), 3)
+Div(99, Mul(100, Div(10, 3)))
+Lex error: line 10, offset 2
 ```
