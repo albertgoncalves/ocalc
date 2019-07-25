@@ -28,7 +28,7 @@ Quick start
 $ nix-shell
 ```
 ```
-[nix-shell:path/to/ocalc/calc]$ cat ../script.txt
+[nix-shell:path/to/ocalc]$ cat script.txt
 1 + 1
 (6 * -100)
 7 ** 3.01
@@ -41,6 +41,7 @@ sq 25
 1..
 ```
 ```
+[nix-shell:path/to/ocalc]$ cd calc/
 [nix-shell:path/to/ocalc/calc]$ cat ../script.txt | ./main
 18 states, 299 transitions, table size 1304 bytes
 2.000000
@@ -53,6 +54,7 @@ sq 25
 Lex error: line 10, offset 2
 ```
 ```
+[nix-shell:path/to/ocalc]$ cd show/
 [nix-shell:path/to/ocalc/show]$ cat ../script.txt | ./main
 18 states, 299 transitions, table size 1304 bytes
 Add(1, 1)
