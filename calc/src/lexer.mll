@@ -11,11 +11,11 @@ rule token = parse
     | [' ' '\t']    { token lexbuf }
     | '\n'          { Lexing.new_line lexbuf; EOL }
     | float as i    { FLOAT (float_of_string i) }
-    | '+'           { PLUS }
-    | '-'           { MINUS }
-    | '*'           { TIMES }
+    | '+'           { ADD }
+    | '-'           { SUB }
+    | '*'           { MUL }
     | '/'           { DIV }
-    | "**"          { POWER }
+    | "**"          { POW }
     | "sq"          { SQRT }
     | '('           { LPAREN }
     | ')'           { RPAREN }

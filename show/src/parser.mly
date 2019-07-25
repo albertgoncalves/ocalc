@@ -9,10 +9,10 @@
 %token RPAREN
 %token EOL
 
-%left ADD SUB            /* lowest precedence */
+%left ADD SUB               /* lowest precedence */
 %left MUL DIV
 %left POW %nonassoc SQRT
-%nonassoc MINUS            /* highest precedence */
+%nonassoc MINUS             /* highest precedence */
 
 %start <Prelude.expr option> main
 
