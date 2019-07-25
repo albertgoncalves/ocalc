@@ -26,9 +26,10 @@ Quick start
 ---
 ```
 $ nix-shell
+[nix-shell:path/to/ocalc]$ cd calc/
 ```
 ```
-[nix-shell:path/to/ocalc]$ cat calc.txt
+[nix-shell:path/to/ocalc/calc]$ cat calc.txt
 1 + 1
 (6 * 100)
 7 ** 3.01
@@ -41,7 +42,7 @@ $ nix-shell
 1..
 ```
 ```
-[nix-shell:path/to/ocalc]$ cat calc.txt | ./main
+[nix-shell:path/to/ocalc/calc]$ cat calc.txt | ./main
 17 states, 299 transitions, table size 1298 bytes
 2.000000
 600.000000

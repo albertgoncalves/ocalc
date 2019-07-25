@@ -8,5 +8,6 @@
 !*.mly
 !*.mll
 !*.ml
+!calc/
 !main
 !calc.txt
