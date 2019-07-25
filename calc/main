@@ -4,16 +4,16 @@ set -eu
 
 build () {
     home=$(pwd)
-    cd $WD/build
+    cd $WD/calc/build
     for x in prelude.ml lexer.mll parser.mly main.ml; do
-        cp $WD/src/$x ./$x
+        cp $WD/calc/src/$x ./$x
     done
     ocamllex lexer.mll
     menhir parser.mly
     ocamlc prelude.ml -c parser.mli
-    ocamlc lexer.ml parser.ml main.ml -o $WD/bin/main
+    ocamlc lexer.ml parser.ml main.ml -o $WD/calc/bin/main
     cd $home
 }
 
 build
-rlwrap $WD/bin/main
+rlwrap $WD/calc/bin/main
