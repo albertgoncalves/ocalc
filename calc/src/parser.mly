@@ -20,15 +20,15 @@
 
 main:
     | EOL                       { None }
-    | e = expr EOL              { Some e }
+    | x = expr EOL              { Some x }
 
 expr:
-    | f = FLOAT                 { f }
-    | LPAREN e = expr RPAREN    { e }
-    | e1 = expr ADD e2 = expr   { e1 +. e2 }
-    | e1 = expr SUB e2 = expr   { e1 -. e2 }
-    | e1 = expr MUL e2 = expr   { e1 *. e2 }
-    | e1 = expr DIV e2 = expr   { e1 /. e2 }
-    | e1 = expr POW e2 = expr   { Float.pow e1 e2 }
-    | SQRT e = expr             { Float.sqrt e }
-    | SUB e = expr %prec MINUS  { -. e }
+    | x = FLOAT                 { x }
+    | LPAREN x = expr RPAREN    { x }
+    | x = expr ADD y = expr     { x +. y }
+    | x = expr SUB y = expr     { x -. y }
+    | x = expr MUL y = expr     { x *. y }
+    | x = expr DIV y = expr     { x /. y }
+    | x = expr POW y = expr     { Float.pow x y }
+    | SQRT x = expr             { Float.sqrt x }
+    | SUB x = expr %prec MINUS  { -. x }

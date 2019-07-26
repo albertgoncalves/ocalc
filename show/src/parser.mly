@@ -20,15 +20,15 @@
 
 main:
     | EOL                       { None }
-    | e = expr EOL              { Some e }
+    | x = expr EOL              { Some x }
 
 expr:
-    | f = FLOAT                 { Prelude.Val f }
-    | LPAREN e = expr RPAREN    { e }
-    | e1 = expr ADD e2 = expr   { Prelude.Binary ("Add", e1, e2) }
-    | e1 = expr SUB e2 = expr   { Prelude.Binary ("Sub", e1, e2) }
-    | e1 = expr MUL e2 = expr   { Prelude.Binary ("Mul", e1, e2) }
-    | e1 = expr DIV e2 = expr   { Prelude.Binary ("Div", e1, e2) }
-    | e1 = expr POW e2 = expr   { Prelude.Binary ("Pow", e1, e2) }
-    | SQRT e = expr             { Prelude.Unary ("Sqrt", e) }
-    | SUB e = expr %prec MINUS  { Prelude.Unary ("Minus", e) }
+    | x = FLOAT                 { Prelude.Val x }
+    | LPAREN; x = expr; RPAREN  { x }
+    | x = expr; ADD; y = expr   { Prelude.Binary ("Add", x, y) }
+    | x = expr; SUB; y = expr   { Prelude.Binary ("Sub", x, y) }
+    | x = expr; MUL; y = expr   { Prelude.Binary ("Mul", x, y) }
+    | x = expr; DIV; y = expr   { Prelude.Binary ("Div", x, y) }
+    | x = expr; POW; y = expr   { Prelude.Binary ("Pow", x, y) }
+    | SQRT x = expr             { Prelude.Unary ("Sqrt", x) }
+    | SUB x = expr %prec MINUS  { Prelude.Unary ("Minus", x) }
