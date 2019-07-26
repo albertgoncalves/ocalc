@@ -22,6 +22,9 @@ rule token = parse
 
 and read_string buf = parse
     | '\\' '\\'             { B.add_char buf '\\'; read_string buf lexbuf }
+    | '\\' 'n'              { B.add_char buf '\n'; read_string buf lexbuf }
+    | '\\' 'r'              { B.add_char buf '\r'; read_string buf lexbuf }
+    | '\\' 't'              { B.add_char buf '\t'; read_string buf lexbuf }
     | '\\' '"'              { B.add_char buf '"'; read_string buf lexbuf }
     | [^ '"' '\\']+ as x    { B.add_string buf x; read_string buf lexbuf }
     | '"'                   { STR (B.contents buf) }
