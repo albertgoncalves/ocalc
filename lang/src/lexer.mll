@@ -10,17 +10,18 @@ let var = alpha (alpha|digit)*
 let num = digit+
 
 rule token = parse
-    | '\n'          { Lexing.new_line lexbuf; token lexbuf }
-    | ".." [^'\n']* | [' ' '\t']
-                    { token lexbuf }
     | '='           { ASSIGN }
-    | '"'           { read_string (B.create 16) lexbuf }
-    | "fn"          { FN }
     | '{'           { LC }
     | '}'           { RC }
+    | ";"           { END }
+    | "fn"          { FN }
+    | '"'           { read_string (B.create 16) lexbuf }
+    | '\n'          { Lexing.new_line lexbuf; token lexbuf }
+    | eof | "eof"   { EOF }
+    | ".." [^'\n']* | [' ' '\t']
+                    { token lexbuf }
     | num as x      { NUM x }
     | var as x      { VAR x }
-    | eof           { EOF }
     | _             { raise Error }
 
 and read_string buf = parse
