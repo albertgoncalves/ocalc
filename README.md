@@ -69,7 +69,8 @@ Lex error: line 10, offset 2
 [nix-shell:path/to/ocalc/lang]$ cat script.txt
 a = 10
 .. a = 11
-b = "abcdefg"
+b =
+    "abcdefg"
 c = "\""
 e = "
     xyz
