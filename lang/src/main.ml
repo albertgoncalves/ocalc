@@ -8,12 +8,9 @@ let print_error (lexbuf : Lexing.lexbuf) (handle : string) : unit =
 let () =
     let lexbuf : Lexing.lexbuf = Lexing.from_channel stdin in
     try
-        while true do
-            match (Parser.main Lexer.token lexbuf) with
-                | Some x -> x |> Prelude.string_of_expr |> print_endline
-                | None -> ()
-        done
+        List.map Prelude.string_of_expr (Parser.main Lexer.token lexbuf)
+        |> List.iter (Printf.printf "%s\n");
+        flush stdout
     with
-        | Lexer.Eof -> exit 0
         | Lexer.Error -> print_error lexbuf "Lex"; exit 1
         | Parser.Error -> print_error lexbuf "Parse"; exit 1
