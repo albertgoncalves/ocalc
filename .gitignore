@@ -6,6 +6,7 @@
 !.ocp-indent
 !calc/
 !show/
+!lang/
 !src/
 !*.mly
 !*.mll

@@ -9,7 +9,7 @@ fi
 
 export WD=$(pwd)
 
-for x in calc show; do
+for x in calc show lang; do
     for y in bin build; do
         if [ ! -d $WD/$x/$y ]; then
             mkdir $WD/$x/$y
