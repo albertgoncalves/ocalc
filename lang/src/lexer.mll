@@ -21,7 +21,7 @@ rule token = parse
     | ".." [^'\n']* | [' ' '\t']
                     { token lexbuf }
     | num as x      { NUM x }
-    | var as x      { VAR x }
+    | var as x      { ID x }
     | _             { raise Error }
 
 and read_string buf = parse

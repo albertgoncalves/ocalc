@@ -1,4 +1,4 @@
-%token <string> VAR
+%token <string> ID
 %token <string> STR
 %token <string> NUM
 %token FN
@@ -16,8 +16,8 @@ main:
     | xs = expr* EOF                        { xs }
 
 expr:
-    | x = VAR                               { Prelude.Var x }
+    | x = ID                                { Prelude.Id x }
     | x = NUM                               { Prelude.Num x }
     | x = STR                               { Prelude.Str x }
     | x = expr ASSIGN y = expr END          { Prelude.Assign (x, y) }
-    | FN x = VAR xs = VAR* LC ys = expr* RC { Prelude.Fn (x, xs, ys) }
+    | FN x = ID xs = ID* LC ys = expr* RC   { Prelude.Fn (x, xs, ys) }
