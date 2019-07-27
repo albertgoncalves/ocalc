@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -eu
+
+build () {
+    home=$(pwd)
+    cd $WD/pprint/build
+    for x in main.ml; do
+        cp $WD/pprint/src/$x ./$x
+    done
+    ocamlc main.ml -o $WD/pprint/bin/main
+    cd $home
+}
+
+build
+rlwrap $WD/pprint/bin/main
