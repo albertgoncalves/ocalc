@@ -6,7 +6,7 @@
 
 let digit = ['0'-'9']
 let alpha = ['a'-'z' 'A'-'Z']
-let var = alpha (alpha|digit)*
+let id = alpha (alpha|digit)*
 let num = digit+
 
 rule token = parse
@@ -21,7 +21,7 @@ rule token = parse
     | ".." [^'\n']* | [' ' '\t']
                     { token lexbuf }
     | num as x      { NUM x }
-    | var as x      { ID x }
+    | id as x       { ID x }
     | _             { raise Error }
 
 and read_string buf = parse
