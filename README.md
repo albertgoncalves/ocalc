@@ -67,35 +67,43 @@ Lex error: line 10, offset 2
 ```
 [nix-shell:path/to/ocalc]$ cd lang/
 [nix-shell:path/to/ocalc/lang]$ cat script.txt
-a = 10
-.. a = 11
+[nix-shell:path/to/ocalc/lang]$ cat script.txt | ./main
+a = 10;
+.. a = 11;
 b =
-    "abcdefg"
-c = "\""
-e = "
+    "abcdefg";
+c = "\"";
+e = ";
     xyz
-"
+";
 fn f a {
-    a = 11
-    a = 12
-    .. a = 13
+    a = 11;
+    a = 12;
+    .. a = 13;
 }
 fn f x y {
     ..
     z = "
         ..
-    "
+    ";
 }
-[nix-shell:path/to/ocalc/lang]$ cat script.txt | ./main
-24 states, 552 transitions, table size 2352 bytes
-Assign(Var(a),Num(10))
-Assign(Var(b),Str(abcdefg))
-Assign(Var(c),Str("))
-Assign(Var(e),Str(
+```
+```
+[nix-shell:~/Projects/ocalc/lang]$ cat script.txt
+28 states, 777 transitions, table size 3276 bytes
+a = 10;
+b = "abcdefg";
+c = """;
+e = ";
     xyz
-))
-Fn(f)(a)(Assign(Var(a),Num(11)),Assign(Var(a),Num(12)))
-Fn(f)(x,y)(Assign(Var(z),Str(
+";
+fn f (a) {
+    a = 11;
+    a = 12;
+}
+fn f (x, y) {
+    z = "
         ..
-    )))
+    ";
+}
 ```
