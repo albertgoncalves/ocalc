@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -eu
+
+build () {
+    home=$(pwd)
+    cd $WD/osql/build
+    for x in prelude.ml lexer.mll parser.mly main.ml; do
+        cp $WD/osql/src/$x ./$x
+    done
+    ocamllex lexer.mll
+    menhir parser.mly
+    ocamlc prelude.ml -c parser.mli
+    ocamlc prelude.ml lexer.ml parser.ml main.ml -o $WD/osql/bin/main
+    cd $home
+}
+
+build
+rlwrap $WD/osql/bin/main
