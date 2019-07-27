@@ -8,9 +8,11 @@
 !show/
 !lang/
 !pprint/
+!osql/
 !src/
 !*.mly
 !*.mll
 !*.ml
 !main
 !script.txt
+!*.sql
