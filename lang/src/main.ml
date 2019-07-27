@@ -8,7 +8,9 @@ let print_error (lexbuf : Lexing.lexbuf) (handle : string) : unit =
 let () =
     let lexbuf : Lexing.lexbuf = Lexing.from_channel stdin in
     try
-        List.map Prelude.string_of_expr (Parser.main Lexer.token lexbuf)
+        List.map
+            (Prelude.string_of_expr 17 (Prelude.indent " " "" 4) 1)
+            (Parser.main Lexer.token lexbuf)
         |> List.iter (Printf.printf "%s\n");
         flush stdout
     with

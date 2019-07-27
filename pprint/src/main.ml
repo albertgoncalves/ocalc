@@ -43,3 +43,11 @@ let rec string_of_expr (limit : int) (margin : string) (offset : int)
             header
             (indent margin block offset)
             (indent margin "}" (offset - 1))
+
+let () =
+    let margin : string = indent " " "" 4 in
+    let inner : expr = Fn("g", ["y"], [Assign (Id "zz", Id "z"); Id "zz"]) in
+    Fn("f", ["a"; "b"; "c"], [inner; inner])
+    |> string_of_expr 17 margin 1
+    |> Printf.printf "%s";
+    flush stdout
