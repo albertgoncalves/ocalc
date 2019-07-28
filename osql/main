@@ -3,15 +3,15 @@
 set -eu
 
 build () {
-    cd $WD/osql/build
+    cd "$WD/osql/build"
     for x in prelude.ml lexer.mll parser.mly main.ml; do
-        cp $WD/osql/src/$x ./$x
+        cp "$WD/osql/src/$x" ./$x
     done
     ocamllex lexer.mll
     menhir parser.mly
     ocamlc prelude.ml -c parser.mli
-    ocamlc prelude.ml lexer.ml parser.ml main.ml -o $WD/osql/bin/main
+    ocamlc prelude.ml lexer.ml parser.ml main.ml -o "$WD/osql/bin/main"
 }
 
 build
-rlwrap $WD/osql/bin/main
+rlwrap "$WD/osql/bin/main"

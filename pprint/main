@@ -3,12 +3,10 @@
 set -eu
 
 build () {
-    cd $WD/pprint/build
-    for x in main.ml; do
-        cp $WD/pprint/src/$x ./$x
-    done
-    ocamlc main.ml -o $WD/pprint/bin/main
+    cd "$WD/pprint/build"
+    cp "$WD/pprint/src/main.ml" ./
+    ocamlc main.ml -o "$WD/pprint/bin/main"
 }
 
 build
-rlwrap $WD/pprint/bin/main
+rlwrap "$WD/pprint/bin/main"

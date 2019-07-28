@@ -3,15 +3,15 @@
 set -eu
 
 build () {
-    cd $WD/calc/build
+    cd "$WD/calc/build"
     for x in lexer.mll parser.mly main.ml; do
-        cp $WD/calc/src/$x ./$x
+        cp "$WD/calc/src/$x" ./$x
     done
     ocamllex lexer.mll
     menhir parser.mly
     ocamlc -c parser.mli
-    ocamlc lexer.ml parser.ml main.ml -o $WD/calc/bin/main
+    ocamlc lexer.ml parser.ml main.ml -o "$WD/calc/bin/main"
 }
 
 build
-rlwrap $WD/calc/bin/main
+rlwrap "$WD/calc/bin/main"
