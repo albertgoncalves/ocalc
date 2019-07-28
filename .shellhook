@@ -1,29 +1,29 @@
 #!/usr/bin/env bash
 
-if [ $(uname -s) = "Darwin" ]; then
+if [ "$(uname -s)" = "Darwin" ]; then
     alias ls='ls --color=auto'
     alias ll='ls -l'
 else
     alias open="xdg-open"
 fi
 
-export WD=$(pwd)
+export WD
+WD=$(pwd)
 
 for x in calc show lang; do
     for y in bin build; do
-        if [ ! -d $WD/$x/$y ]; then
-            mkdir $WD/$x/$y
+        if [ ! -d "$WD/$x/$y" ]; then
+            mkdir "$WD/$x/$y"
         fi
     done
 done
 
 indent () {
-    if [ -d $1 ]; then
-        xs=$1/*.ml
-        if ls $xs >/dev/null 2>&1; then
-            for x in $xs; do
-                echo $x
-                ocp-indent -i $x
+    if [ -d "$1" ]; then
+        if ls "$1"/*.ml >/dev/null 2>&1; then
+            for x in "$1"/*.ml; do
+                echo "$x"
+                ocp-indent -i "$x"
             done
         fi
     fi

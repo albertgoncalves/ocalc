@@ -8,6 +8,7 @@ with pkgs; mkShell {
             ocp-indent
         ])
         rlwrap
+        shellcheck
     ];
     shellHook = ''
         . .shellhook
