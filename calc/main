@@ -3,7 +3,6 @@
 set -eu
 
 build () {
-    home=$(pwd)
     cd $WD/calc/build
     for x in lexer.mll parser.mly main.ml; do
         cp $WD/calc/src/$x ./$x
@@ -12,7 +11,6 @@ build () {
     menhir parser.mly
     ocamlc -c parser.mli
     ocamlc lexer.ml parser.ml main.ml -o $WD/calc/bin/main
-    cd $home
 }
 
 build
