@@ -6,7 +6,7 @@ let print_error (lexbuf : Lexing.lexbuf) (handle : string) : unit =
         position.Lexing.pos_lnum
         (position.Lexing.pos_cnum - position.Lexing.pos_bol)
 
-let () =
+let () : unit =
     let lexbuf : Lexing.lexbuf = Lexing.from_channel stdin in
     try
         while true do

@@ -44,10 +44,10 @@ let rec string_of_expr (limit : int) (margin : string) (offset : int)
             (indent margin block offset)
             (indent margin "}" (offset - 1))
 
-let () =
+let () : unit =
     let margin : string = indent " " "" 4 in
-    let inner : expr = Fn("g", ["y"], [Assign (Id "zz", Id "z"); Id "zz"]) in
-    Fn("f", ["a"; "b"; "c"], [inner; inner])
+    let inner : expr = Fn ("g", ["y"], [Assign (Id "zz", Id "z"); Id "zz"]) in
+    Fn ("f", ["a"; "b"; "c"], [inner; inner])
     |> string_of_expr 17 margin 1
     |> Printf.printf "%s";
     flush stdout

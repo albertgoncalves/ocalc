@@ -9,7 +9,7 @@ let print_error (lexbuf : Lexing.lexbuf) : unit =
         position.Lexing.pos_lnum
         (position.Lexing.pos_cnum - position.Lexing.pos_bol)
 
-let () =
+let () : unit =
     let lexbuf : Lexing.lexbuf = Lexing.from_channel stdin in
     try
         let _ = List.map print_tuple (Parser.main Lexer.token lexbuf) in
