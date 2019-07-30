@@ -1,6 +1,5 @@
-{ pkgs ? import <nixpkgs> {} }:
-with pkgs; mkShell {
-    name = "ocalc";
+with import <nixpkgs> {};
+mkShell {
     buildInputs = [
         (with ocaml-ng.ocamlPackages_4_07; [
             menhir
