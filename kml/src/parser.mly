@@ -1,16 +1,14 @@
-%token START
-%token END
+%token MARK
 %token EOF
-%token <string> NAME
-%token <string> COORDINATES
+%token <string> TEXT
 
 %start <(string * string) option list> main
 
 %%
 
 main:
-    | xs = row* EOF                         { xs }
+    | xs = row* EOF                 { xs }
 
 row:
-    | START x = NAME y = COORDINATES END    { Some (x, y) }
-    | NAME                                  { None }
+    | MARK x = TEXT y = TEXT MARK   { Some (x, y) }
+    | TEXT                          { None }
