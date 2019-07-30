@@ -1,6 +1,6 @@
+%token <string> TEXT
 %token MARK
 %token EOF
-%token <string> TEXT
 
 %start <(string * string) option list> main
 
