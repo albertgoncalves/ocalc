@@ -10,7 +10,7 @@ fi
 export WD
 WD=$(pwd)
 
-for x in calc show lang; do
+for x in calc show lang pprint osql kml; do
     for y in bin build; do
         if [ ! -d "$WD/$x/$y" ]; then
             mkdir "$WD/$x/$y"
