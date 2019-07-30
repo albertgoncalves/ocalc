@@ -10,7 +10,9 @@ build () {
     ocamllex lexer.mll
     menhir parser.mly
     ocamlc -c parser.mli
-    ocamlc lexer.ml parser.ml main.ml -o "$WD/calc/bin/main"
+    ocamlc lexer.ml parser.ml main.ml \
+        -w +1..66-4-48 \
+        -o "$WD/calc/bin/main"
 }
 
 build

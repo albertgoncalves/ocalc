@@ -5,7 +5,9 @@ set -eu
 build () {
     cd "$WD/pprint/build"
     cp "$WD/pprint/src/main.ml" ./
-    ocamlc main.ml -o "$WD/pprint/bin/main"
+    ocamlc main.ml \
+        -w +1..66-4-48 \
+        -o "$WD/pprint/bin/main"
 }
 
 build
