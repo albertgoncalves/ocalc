@@ -8,7 +8,6 @@ mkShell {
         ])
         rlwrap
         shellcheck
-        python37
     ];
     shellHook = ''
         . .shellhook
