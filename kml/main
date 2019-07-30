@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+set -eu
+
+build () {
+    cd "$WD/kml/build"
+    for x in lexer.mll parser.mly main.ml; do
+        cp "$WD/kml/src/$x" ./$x
+    done
+    ocamllex lexer.mll
+    menhir parser.mly
+    ocamlc -c parser.mli
+    ocamlc lexer.ml parser.ml main.ml \
+        -w +1..66-4-48 \
+        -o "$WD/kml/bin/main"
+}
+
+build
+
+if [ -f "$WD/kml/data/points.kml" ]; then
+    if [ ! -d "$WD/kml/out/" ]; then
+        mkdir "$WD/kml/out/"
+    fi
+    "$WD/kml/bin/main" < "$WD/kml/data/points.kml" > "$WD/kml/out/points.csv"
+    cat "$WD/kml/out/points.csv"
+else
+    rlwrap "$WD/kml/bin/main"
+fi
